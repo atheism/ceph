@@ -215,7 +215,7 @@ class Worker {
 
   Worker(CephContext *c, unsigned i)
     : cct(c), perf_logger(NULL), id(i), references(0), center(c) {
-    char name[128];
+    char name[128] = {0};
     sprintf(name, "AsyncMessenger::Worker-%u", id);
     // initialize perf_logger
     PerfCountersBuilder plb(cct, name, l_msgr_first, l_msgr_last);
